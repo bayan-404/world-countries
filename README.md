@@ -1,27 +1,25 @@
 # AngularWorldCountries
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.2.
+an app that shows you all the countries of the world , and let's you know more about them
 
-## Development server
+## the user should be able to : 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+ - see all countries on the homepage
+ - Search for a country 
+ - Filter countries by region
+ - see more detailed information for a spcific country
+ - show the border countries on the detail page of each country
+ - Toggle the color scheme between light and dark mode 
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## how to run :
+ 1- git clone 
+ 
+ 2- cd `angular-world-countries`
+ 
+ 3- npm start
+ 
+ ## running the test : 
+ to do 
+ 
+ ## live Demo :
+ to do
