@@ -1,0 +1,13 @@
+* {
+  font-family: "Laila", sans-serif;
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+}
+
+.country-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: auto;
+}
