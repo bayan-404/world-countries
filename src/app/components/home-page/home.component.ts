@@ -29,7 +29,6 @@ export class HomePageComponent implements OnInit {
       this.allContries = res;
       this.onSearch();
     });
-    console.log(this.searchCountry);
   }
 
   onSearch() {
@@ -39,11 +38,11 @@ export class HomePageComponent implements OnInit {
   }
 
   searchValue(contries: Array<Country>) {
-    return contries.filter((item: Country) => {
+    return contries.filter((country: Country) => {
       if (this.searchCountry.trim() === '') {
         return true;
       } else {
-        return item.name
+        return country.name
           .toLowerCase()
           .includes(this.searchCountry.trim().toLocaleLowerCase());
       }
