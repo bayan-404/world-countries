@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AllContriesService } from '../../all-contries.service';
+import { Country } from '../../models/Country';
 @Component({
   selector: 'home-page',
   templateUrl: './home.component.html',
@@ -15,12 +16,15 @@ export class HomePageComponent implements OnInit {
     { name: 'Europe' },
   ];
   selectedContinent = this.continents[0].name;
-  allContries: any;
-  continentContreis: any = [];
-  constructor(private allContriesService: AllContriesService) {}
+  allContries: Array<Country>;
+  continentContreis: Array<Country>;
+  constructor(private allContriesService: AllContriesService) {
+    this.allContries = [];
+    this.continentContreis = [];
+  }
 
   ngOnInit(): void {
-    this.allContriesService.getAllCountries().subscribe((res) => {
+    this.allContriesService.getAllCountries().subscribe((res: any) => {
       this.allContries = res;
       this.continentContreis = res;
     });
@@ -30,7 +34,7 @@ export class HomePageComponent implements OnInit {
     console.log(event);
     this.selectedContinent = event;
 
-    this.continentContreis = this.allContries.filter((country: any) => {
+    this.continentContreis = this.allContries.filter((country: Country) => {
       if (event === 'all') {
         return true;
       } else {
