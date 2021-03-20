@@ -1,0 +1,22 @@
+<label>Choose a region</label>
+<select
+  [(ngModel)]="selectedContinent"
+  name="continents"
+  (ngModelChange)="filterbyregion($event)"
+>
+  <option *ngFor="let continent of continents" [ngValue]="continent.name">
+    {{ continent.name }}
+  </option>
+</select>
+
+<div class="country-container">
+  <div class="country-card" *ngFor="let oneCountry of continentContreis">
+    <img class="flag" [src]="oneCountry.flag" alt="flag" />
+    <div class="card-text">
+      <h2 class="country-name">{{ oneCountry.name }}</h2>
+      <p class="country-details">
+        {{ oneCountry.region }} ({{ oneCountry.alpha3Code }})
+      </p>
+    </div>
+  </div>
+</div>
