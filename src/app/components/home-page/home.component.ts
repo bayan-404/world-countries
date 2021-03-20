@@ -15,32 +15,50 @@ export class HomePageComponent implements OnInit {
     { name: 'Americas' },
     { name: 'Europe' },
   ];
+  searchCountry: string = '';
+  continentCountries: Array<Country>;
   selectedContinent = this.continents[0].name;
   allContries: Array<Country>;
-  continentContreis: Array<Country>;
   constructor(private allContriesService: AllContriesService) {
     this.allContries = [];
-    this.continentContreis = [];
+    this.continentCountries = [];
   }
 
   ngOnInit(): void {
     this.allContriesService.getAllCountries().subscribe((res: any) => {
       this.allContries = res;
-      this.continentContreis = res;
+      this.onSearch();
     });
   }
 
-  filterbyregion(event: string) {
-    console.log(event);
-    this.selectedContinent = event;
+  onSearch() {
+    this.continentCountries = this.filterbyregion(
+      this.searchValue(this.allContries)
+    );
+  }
 
-    this.continentContreis = this.allContries.filter((country: Country) => {
-      if (event === 'all') {
+  searchValue(contries: Array<Country>) {
+    return contries.filter((country: Country) => {
+      if (this.searchCountry.trim() === '') {
         return true;
       } else {
-        return country.region === event;
+        return country.name
+          .toLowerCase()
+          .includes(this.searchCountry.trim().toLocaleLowerCase());
       }
     });
-    console.log(this.continentContreis);
+  }
+
+  filterbyregion(contries: Array<Country>) {
+    return contries.filter((country: Country) => {
+      if (
+        this.selectedContinent === 'all' ||
+        this.selectedContinent === country.region
+      ) {
+        return true;
+      } else {
+        return false;
+      }
+    });
   }
 }
