@@ -10,6 +10,8 @@ import { Country } from '../../models/Country';
 export class CountryDetailsComponent implements OnInit {
   countryName: string = '';
   countryDetails: any = {};
+  CountryBorders: any = [];
+  isLoading: boolean = true;
   constructor(
     private route: ActivatedRoute,
     private countryDetailsSevice: CountryDetailsService
@@ -23,6 +25,10 @@ export class CountryDetailsComponent implements OnInit {
         .getCountry(params.get('code'))
         .subscribe((contryData: any) => {
           this.countryDetails = contryData;
+          this.CountryBorders = this.countryDetails.borders;
+          this.countryDetails
+            ? (this.isLoading = false)
+            : (this.isLoading = true);
         });
     });
   }
