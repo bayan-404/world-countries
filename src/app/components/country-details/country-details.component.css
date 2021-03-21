@@ -1,0 +1,33 @@
+.contryDetailsContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 6%;
+}
+
+.countryDetails {
+  display: flex;
+}
+
+.flag {
+  width: 50%;
+}
+
+.countryInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 50%;
+  padding-left: 3%;
+}
+
+.backBtn {
+  color: #ffffff;
+  background-color: gray;
+  width: 50%;
+  height: 3rem;
+  padding: 1rem;
+  border-radius: 6px;
+}
+
+.bordersContainer {
+}
