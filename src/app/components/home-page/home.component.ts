@@ -15,6 +15,7 @@ export class HomePageComponent implements OnInit {
     { name: 'Americas' },
     { name: 'Europe' },
   ];
+  isLoading: boolean = false;
   searchCountry: string = '';
   continentCountries: Array<Country>;
   selectedContinent = this.continents[0].name;
@@ -25,8 +26,12 @@ export class HomePageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (this.allContries.length === 0) {
+      this.isLoading = true;
+    }
     this.allContriesService.getAllCountries().subscribe((res: any) => {
       this.allContries = res;
+      this.isLoading = false;
       this.onSearch();
     });
   }
