@@ -1,6 +1,5 @@
 <form>
-  <div (change)="onSearch()" (keyup)="onSearch()">
-    <label>Choose a region</label>
+  <div class="filterForm" (change)="onSearch()" (keyup)="onSearch()">
     <select
       [(ngModel)]="selectedContinent"
       name="continents"

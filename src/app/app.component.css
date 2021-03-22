@@ -1,1 +1,9 @@
+.world {
+  text-align: center;
+  padding: 1rem;
+}
 
+hr {
+  margin: auto;
+  width: 25%;
+}
