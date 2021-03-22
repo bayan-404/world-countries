@@ -1,10 +1,24 @@
 export type Country = {
-  flag: string;
   name: string;
+  topLevelDomain: string[];
+  flag: string;
+  alpha2Code: string;
   alpha3Code: string;
+  callingCodes: string[];
   capital: string;
+  altSpellings: string[];
   region: string;
+  subregion: string;
   population: number;
+  latlng: string[];
+  demonym: string;
+  area: number;
+  gini: number;
   timezone: string[];
   borders: string[];
+  nativeName: string;
+  currencies: string[];
+  numericCode: string;
+  cioc: string[];
+  regionalBlocs: string[];
 };
