@@ -1,6 +1,5 @@
 <form>
-  <div (change)="onSearch()" (keyup)="onSearch()">
-    <label>Choose a region</label>
+  <div class="filterForm" (change)="onSearch()" (keyup)="onSearch()">
     <select
       [(ngModel)]="selectedContinent"
       name="continents"
@@ -15,16 +14,27 @@
 </form>
 
 <div class="country-container">
-  <div class="country-card" *ngFor="let eachCountry of continentCountries">
-    <img class="flag" [src]="eachCountry.flag" alt="flag" />
-    <div class="card-text">
-      <h2 class="country-name">{{ eachCountry.name }}</h2>
-      <p class="country-details">
-        {{ eachCountry.region }} ({{ eachCountry.alpha3Code }})
-      </p>
-    </div>
+  <div *ngFor="let eachCountry of continentCountries">
+    <a
+      class="country-card"
+      [routerLink]="['/country/' + eachCountry.alpha3Code]"
+    >
+      <img class="flag" [src]="eachCountry.flag" alt="flag" />
+      <div class="card-text">
+        <h2 class="country-name">{{ eachCountry.name }}</h2>
+        <p class="country-details">
+          {{ eachCountry.region }} ({{ eachCountry.alpha3Code }})
+        </p>
+      </div>
+    </a>
   </div>
-  <h1 *ngIf="continentCountries.length === 0">
-    this country doesn't exist on Earth
-  </h1>
+  <h1 [hidden]="!isLoading">LOADING</h1>
+  <div *ngIf="continentCountries.length === 0 && !isLoading">
+    <h1 [hidden]="selectedContinent === 'all'">
+      This Country Doesn't Exist in {{ selectedContinent }}
+    </h1>
+    <h1 [hidden]="selectedContinent !== 'all'">
+      This Country Doesn't Exist On Earth
+    </h1>
+  </div>
 </div>
