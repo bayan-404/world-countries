@@ -1,17 +1,33 @@
-<form>
-  <div class="filterForm" (change)="onSearch()" (keyup)="onSearch()">
-    <select
-      [(ngModel)]="selectedContinent"
-      name="continents"
-      (ngModelChange)="(filterbyregion)"
-    >
-      <option *ngFor="let continent of continents" [ngValue]="continent.name">
-        {{ continent.name }}
-      </option>
-    </select>
-    <input [(ngModel)]="searchCountry" name="searchCountry" type="text" />
-  </div>
-</form>
+<header class="header">
+  <h1 class="home-title">World Countries</h1>
+  <form class="form">
+    <div class="filterForm" (change)="onSearch()" (keyup)="onSearch()">
+      <div class="custom-select">
+        <select
+          [(ngModel)]="selectedContinent"
+          name="continents"
+          class="continents"
+          (ngModelChange)="(filterbyregion)"
+        >
+          <option
+            *ngFor="let continent of continents"
+            [ngValue]="continent.name"
+          >
+            {{ continent.name }}
+          </option>
+        </select>
+        <span class="custom-arrow"></span>
+      </div>
+      <input
+        [(ngModel)]="searchCountry"
+        placeholder="Search..."
+        name="searchCountry"
+        type="text"
+        class="search-country"
+      />
+    </div>
+  </form>
+</header>
 
 <div class="country-container">
   <div *ngFor="let eachCountry of continentCountries">
@@ -28,12 +44,12 @@
       </div>
     </a>
   </div>
-  <h1 [hidden]="!isLoading">LOADING</h1>
+  <h1 class="message" [hidden]="!isLoading">LOADING</h1>
   <div *ngIf="continentCountries.length === 0 && !isLoading">
-    <h1 [hidden]="selectedContinent === 'all'">
+    <h1 class="message" [hidden]="selectedContinent === 'all'">
       This Country Doesn't Exist in {{ selectedContinent }}
     </h1>
-    <h1 [hidden]="selectedContinent !== 'all'">
+    <h1 class="message" [hidden]="selectedContinent !== 'all'">
       This Country Doesn't Exist On Earth
     </h1>
   </div>
