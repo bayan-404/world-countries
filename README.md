@@ -7,6 +7,7 @@ an app that shows you all the countries of the world , and let's you know more a
  - see all countries on the homepage
  - Search for a country 
  - Filter countries by region
+ - search for a country in a specific region
  - see more detailed information for a spcific country
  - show the border countries on the detail page of each country
 
@@ -15,7 +16,9 @@ an app that shows you all the countries of the world , and let's you know more a
  
  2- cd `angular-world-countries`
  
- 3- npm start
+ 3- npm install
+ 
+ 4- npm start
  
  ## live Demo :
 https://countries-5b4db.web.app/
