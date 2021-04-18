@@ -9,8 +9,14 @@ import { routsTable } from './routs';
 import { CountryDetailsComponent } from './components/country-details/country-details.component';
 import { HomePageComponent } from './components/home-page/home.component';
 import { FormsModule } from '@angular/forms';
+import { ErrorPageComponent } from './components/error-404/error-page.component';
 @NgModule({
-  declarations: [AppComponent, CountryDetailsComponent, HomePageComponent],
+  declarations: [
+    AppComponent,
+    CountryDetailsComponent,
+    HomePageComponent,
+    ErrorPageComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
