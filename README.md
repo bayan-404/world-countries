@@ -1,6 +1,6 @@
 # [Angular World Countries](https://countries-5b4db.web.app/)
 
-an app that shows you all the countries of the world , and let's you know more about them
+an app that shows you all the countries of the world , and let you know more about them
 
 ## the user should be able to : 
 
