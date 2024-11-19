@@ -26,6 +26,7 @@ export class HomePageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log('contries',this.allContries[0])
     if (this.allContries.length === 0) {
       this.isLoading = true;
     }

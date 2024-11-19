@@ -9,11 +9,6 @@ export class AllContriesService {
   constructor(private http: HttpClient) {}
 
   getAllCountries(): Observable<any> {
-    console.log("the passkey :",environment.PASSKEY)
-    return (
-
-      this.http.get(`https://api.countrylayer.com/v2/all?access_key=${environment.PASSKEY}`)
-    )
-    ;
+    return this.http.get(`https://api.countrylayer.com/v2/all?access_key=${environment.PASSKEY}`)
   }
 }
