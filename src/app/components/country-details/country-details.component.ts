@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CountryDetailsService } from './country-details.service';
 import { Country } from '../../models/Country';
+import { Subscriber } from 'rxjs';
 @Component({
   selector: 'country-details',
   templateUrl: './country-details.component.html',
@@ -10,7 +11,9 @@ import { Country } from '../../models/Country';
 export class CountryDetailsComponent implements OnInit {
   countryName: string = '';
   countryDetails: any;
+  borderCountryDetails: any = [];
   countryBorders: Array<string>;
+
   isLoading: boolean = true;
   constructor(
     private route: ActivatedRoute,
@@ -29,7 +32,23 @@ export class CountryDetailsComponent implements OnInit {
           this.countryDetails
             ? (this.isLoading = false)
             : (this.isLoading = true);
+          this.bordersFlag();
         });
     });
+  }
+
+  bordersFlag() {
+    this.borderCountryDetails = [];
+    this.countryBorders.length > 0 &&
+      this.countryBorders.map((borderCode) =>
+        this.countryDetailsSevice
+          .getCountry(borderCode)
+          .subscribe((borderCountryData: Country) => {
+            this.borderCountryDetails = [
+              ...this.borderCountryDetails,
+              borderCountryData,
+            ];
+          })
+      );
   }
 }

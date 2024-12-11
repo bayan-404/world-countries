@@ -20,11 +20,15 @@
   <ul>
     <a class="bordersContainer">
       <li
+        *ngFor="let country of borderCountryDetails"
         class="borderItem"
-        *ngFor="let country of countryBorders"
-        [routerLink]="['/country/', country]"
+        [routerLink]="['/country/', country.alpha3Code]"
       >
-        {{ country }}
+        <img
+          [src]="country.flag"
+          alt="boder country flag"
+          class="bordersFlag"
+        />
       </li>
     </a>
   </ul>
